@@ -29,14 +29,15 @@ function onFormsSubmit(event){
 function getStorageData(){
     const data = localStorage.getItem(STORAGE_KEY);
     const paramsData =JSON.parse(data);
+    if (paramsData){
+        if (paramsData.email){
+            fromObject.email.value = paramsData.email;
+        };
     
-    if (paramsData.email){
-        fromObject.email.value = paramsData.email;
-    };
-
-    if(paramsData.message){
-        fromObject.message.value = paramsData.message;  
-    };
+        if(paramsData.message){
+            fromObject.message.value = paramsData.message;  
+        };
+    }  
 };
 
 getStorageData();
